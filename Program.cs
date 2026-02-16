@@ -13,7 +13,30 @@ namespace AgendaPersonale
             Console.WriteLine("GOOGLE CALENDAR NON PLUS ULTRA");
 
             stampaMenu();
-
+            Console.Write("Scegliere la prossima operazione: ");
+            string scelta = Console.ReadLine();
+            switch (scelta)
+            {
+                case "1":
+                    // TODO: visualizzare attività
+                    Console.WriteLine("DEBUG - visualizzazione di tutte le attività.");
+                    break;
+                case "2":
+                    Console.WriteLine("DEBUG: Inserimento di una nuova attività.");
+                    break;
+                case "3":
+                    Console.WriteLine("DEBUG: Modifica di un'attività.");
+                    break;
+                case "4":
+                    Console.WriteLine("DEBUG: Eliminazione di un'attività.");
+                    break;
+                case "0":
+                    Console.WriteLine("DEBUG: BYE BYE!!!");
+                    break;
+                default:
+                    Console.WriteLine("Scelta non valida.");
+                    break;
+            }
         }
 
         static void stampaMenu()
@@ -25,5 +48,7 @@ namespace AgendaPersonale
             Console.WriteLine("4 - Elimina attività");
             Console.WriteLine("0 - ESCI");
         }
+
+        
     }
 }
