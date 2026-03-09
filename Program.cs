@@ -68,6 +68,7 @@ namespace AgendaPersonale
                     case "3":
                         Console.WriteLine("DEBUG: Ordinemanto delle attività.");
                         // Ordinamento delle attività per data (che vuol dire, per come è stata memorizzata la data, in ordine alfabetico)
+                        ordina(attivita);
                         break;
                     case "4":
                         Console.WriteLine("DEBUG: Eliminazione di un'attività.");
@@ -123,6 +124,31 @@ namespace AgendaPersonale
                 }
             }
             return false;
+        }
+
+        static void ordina(string[] array)
+        {
+            for (int i = 0; i < array.Length - 1; i++) // indice di ITERAZIONE A (nero)
+            {
+                int minIndex = i; // indice del minimo corrente (giallo)
+                for (int j = i + 1; j < array.Length; j++) // indice di ITERAZIONE B (blu)
+                {
+                    // confronto l'elemento corrente (BLU - j), con il valore minimo corrente
+                    // se è minore, diventa il nuovo minimo
+                    if (String.Compare(array[minIndex], array[j]) > 0)
+                    {
+                        minIndex = j;
+                    }
+                }
+                // all'indice i ho il valore che deve diventare il minimo (tramite scambio)
+                // all'indice minIndex ho il valore minimo
+                if (i != minIndex)
+                {
+                    string memoria = array[i];
+                    array[i] = array[minIndex];
+                    array[minIndex] = memoria;
+                }
+            }
         }
     }
 }
